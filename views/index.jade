@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	h1 Hello! Please Input Your You-Tube Video
+
+	h2 Add a Video
+
+	form(action="/submitYouTubeVideo", method="post")
+		input(type="text", name="name", placeholder="Name")
+		input(type="text", name="urlvideolink", placeholder="Urlvideolink")
+		input(type="text", name="title", placeholder="Title")
+		textarea(type="text", name="description", placeholder="Desc")
+		input(type="submit")
+
+		//- form(name="input", action="/formsubmit", method="post")
+
+		//- input(type="email", name="email")
+		//- input(type="submit", value="Submit")
+	ul
+	for youtube in youtubevideos
+		li: a(href="/view/#{youtube.title}")= youtube.title
